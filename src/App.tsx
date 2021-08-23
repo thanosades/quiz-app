@@ -1,10 +1,18 @@
-import React from 'react';
+import StartPage from './components/StartPage';
+import { Difficulty, Category } from './components/StartPage';
 import './App.css';
 
 function App() {
+
+  const startGame = (difficulty: Difficulty, category: Category) => {
+    console.log('GAME STARTS!');
+    console.log('difficulty', difficulty);
+    console.log('category', category);
+  }
+
   return (
     <div className="App">
-      <p>Quiz App</p>
+      <StartPage startGame={startGame} />
     </div>
   );
 }
