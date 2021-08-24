@@ -3,7 +3,7 @@ import StartPage from './components/StartPage';
 import Question from './components/Question';
 import Results from './components/Results';
 import { Question as QuestionType } from './types';
-import './App.css';
+import './App.scss';
 
 function App() {
   const [questions, setQuestions] = useState<QuestionType[]>([]);
@@ -21,7 +21,6 @@ function App() {
   };
 
   const handleAnswer = (isCorrect: boolean) => {
-    console.log(isCorrect);
     if (isCorrect) {
       setScore(oldScore => oldScore + 1);
     }
