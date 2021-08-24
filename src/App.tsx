@@ -1,18 +1,19 @@
+import { useState } from 'react';
 import StartPage from './components/StartPage';
-import { Difficulty, Category } from './components/StartPage';
+import { Question } from './types';
 import './App.css';
 
 function App() {
-
-  const startGame = (difficulty: Difficulty, category: Category) => {
-    console.log('GAME STARTS!');
-    console.log('difficulty', difficulty);
-    console.log('category', category);
+  const [questions, setQuestions] = useState<Question[]>([]);
+  
+  const startGame = (questionsArr: Question[]) => {
+    setQuestions(questionsArr);
   }
 
   return (
     <div className="App">
-      <StartPage startGame={startGame} />
+      {questions.length === 0 && <StartPage startGame={startGame} />}
+      {questions.length > 0 && <p>Questions are running</p>}
     </div>
   );
 }
