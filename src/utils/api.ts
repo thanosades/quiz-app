@@ -15,7 +15,7 @@ interface OpenTriviaDB {
 }
 
 export default async function getQuestions(category: Category, difficulty: Difficulty) {
-  const res: OpenTriviaDB = await (await fetch(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple&encode=base64`)).json();
+  const res: OpenTriviaDB = await (await fetch(`https://ontdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple&encode=base64`)).json();
   const processedQuestions = processResults(res.results);
   return processedQuestions;
 }
