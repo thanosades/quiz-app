@@ -14,7 +14,6 @@ function App() {
   }
 
   const handleAnswer = (isCorrect: boolean) => {
-    console.log('user choose', isCorrect);
     if (isCorrect) {
       setScore(oldScore => oldScore + 1);
     }
@@ -22,8 +21,6 @@ function App() {
   }
 
   const currentQuestion: QuestionType = questions[index];
-
-  console.log('score is', score);
 
   return (
     <div className="App">
