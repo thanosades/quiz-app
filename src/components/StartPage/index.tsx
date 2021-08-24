@@ -2,10 +2,19 @@ import React, { useState, useEffect } from 'react';
 import getQuestions from '../../utils/api';
 import { Category, Difficulty, Question } from '../../types';
 
+function ErrorComponent() {
+  return (
+    <div>
+      <p>An error has occured. Please try again later.</p>
+    </div>
+  );
+}
+
 export default function StartPage({ startGame }: { startGame: (questions: Question[]) => void }) {
   const [difficulty, setDifficulty] = useState<Difficulty>('easy');
   const [category, setCategory] = useState<Category>('15');
   const [start, setStart] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleDifficultyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setDifficulty(e.currentTarget.value as Difficulty);
@@ -24,8 +33,9 @@ export default function StartPage({ startGame }: { startGame: (questions: Questi
     if (start) {
       getQuestions(category, difficulty)
         .then(data => startGame(data))
+        .catch(err => setError(true))
     }
-  }, [start, category, difficulty]);
+  }, [start, category, difficulty, startGame]);
 
   return (
     <div>
@@ -48,6 +58,7 @@ export default function StartPage({ startGame }: { startGame: (questions: Questi
 
         <button>Start</button>
       </form>
+      {error && <ErrorComponent />}
     </div>
   );
 }
