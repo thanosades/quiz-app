@@ -15,7 +15,7 @@ interface OpenTriviaDB {
 }
 
 export default async function getQuestions(category: Category, difficulty: Difficulty) {
-  const url = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple&encode=base64`;
+  const url = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple&encode=url3986`;
   const res: OpenTriviaDB = await (await fetch(url)).json();
   const processedQuestions = processResults(res.results);
   return processedQuestions;
@@ -23,7 +23,7 @@ export default async function getQuestions(category: Category, difficulty: Diffi
 
 function questionFormatter(answersArr: string[]): Answer[] {
   return answersArr.map((answer, index) => {
-    const text = atob(answer);
+    const text = decodeURIComponent(answer);
     return { text, isCorrect: index === 0 }
   });
 }
@@ -38,7 +38,7 @@ function questionFormatter(answersArr: string[]): Answer[] {
 
 function processResults(results: FetchedQuestion[]): Question[] {
   return results.map(current => ({
-    question: atob(current.question),
+    question: decodeURIComponent(current.question),
     answers: shuffle(questionFormatter([current.correct_answer, ...current.incorrect_answers]))
   }));  
 }
