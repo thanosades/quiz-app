@@ -11,6 +11,7 @@ function App() {
   const [index, setIndex] = useState(0);
   
   const startGame = (questionsArr: QuestionType[]) => {
+    console.log('we are here');
     setQuestions(questionsArr);
   }
 
