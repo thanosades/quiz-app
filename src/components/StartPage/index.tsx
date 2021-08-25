@@ -3,6 +3,7 @@ import Loader from '../Loader';
 import getQuestions from '../../utils/api';
 import { Category, Difficulty, Question } from '../../types';
 import './index.scss';
+import Footer from '../Footer';
 
 function ErrorComponent() {
   return (
@@ -70,6 +71,7 @@ export default function StartPage({ startGame }: { startGame: (questions: Questi
             <button>Start</button>
           </form>
           {error && <ErrorComponent />}
+          <Footer />
         </div>
       )}
     </>
