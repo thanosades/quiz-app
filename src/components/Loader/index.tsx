@@ -1,8 +1,8 @@
-import styles from './index.module.scss';
+import './index.scss';
 
 export default function Spinner() {
   return (
-    <div className={styles.loader}>
+    <div className='loader'>
       <div></div>
       <div></div>
       <div></div>

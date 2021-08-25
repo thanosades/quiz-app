@@ -1,4 +1,29 @@
+$text-color: #efeff1;
+
 body {
-  background-color: #629f7e;
-  color: #e0bf34;
+  background-color: #18181b;
+  color: $text-color;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background-color: #a970ff;
+  color: $text-color;
+  padding: 20px;
+  width: 250px;
+  height: auto;
+  margin-bottom: 50px;
+  border: 0;
+  border-radius: 4px;
+  font-size: 24px;
+}
+
+button:hover {
+  background-color: #772ce8;
 }

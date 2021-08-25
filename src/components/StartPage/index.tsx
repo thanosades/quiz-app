@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Loader from '../Loader';
 import getQuestions from '../../utils/api';
 import { Category, Difficulty, Question } from '../../types';
+import './index.scss';
 
 function ErrorComponent() {
   return (
@@ -43,32 +44,34 @@ export default function StartPage({ startGame }: { startGame: (questions: Questi
     }
   }, [start, category, difficulty, startGame]);
 
-  if (loader) {
-    return (<div><Loader /></div>)
-  } else {
-    return (
-      <div>
-        <h1>Welcome to the Open Trivia Quiz!</h1>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="difficulty">Select difficulty</label>
-          <select id='difficulty' value={difficulty} onChange={handleDifficultyChange}>
-            <option value='easy'>Easy</option>
-            <option value='medium'>Medium</option>
-            <option value='hard'>Hard</option>
-          </select>
 
-          <label htmlFor='category'>Select category:</label>
-          <select id='category' value={category} onChange={handleCategoryChange}>
-            <option value='15'>Video Games</option>
-            <option value='14'>Entertainment: Television</option>
-            <option value='31'>Anime & Manga</option>
-            <option value='9'>General Knowledge</option>
-          </select>
+  return (
+    <>
+      {loader && <div className='loaderContainer'><Loader /></div>}
+      {!loader && (
+        <div>
+          <h1>Welcome to the Open Trivia Quiz!</h1>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="difficulty">Select difficulty</label>
+            <select id='difficulty' value={difficulty} onChange={handleDifficultyChange}>
+              <option value='easy'>Easy</option>
+              <option value='medium'>Medium</option>
+              <option value='hard'>Hard</option>
+            </select>
 
-          <button>Start</button>
-        </form>
-        {error && <ErrorComponent />}
-      </div>
-    );
-  }
+            <label htmlFor='category'>Select category:</label>
+            <select id='category' value={category} onChange={handleCategoryChange}>
+              <option value='15'>Video Games</option>
+              <option value='14'>Entertainment: Television</option>
+              <option value='31'>Anime & Manga</option>
+              <option value='9'>General Knowledge</option>
+            </select>
+
+            <button>Start</button>
+          </form>
+          {error && <ErrorComponent />}
+        </div>
+      )}
+    </>
+  )
 }

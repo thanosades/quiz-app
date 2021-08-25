@@ -1,5 +1,5 @@
 import { Question as QuestionType } from "../../types";
-import css from './index.module.scss';
+import './index.scss';
 
 interface QuestionProps {
   currentQuestion: QuestionType;
@@ -10,14 +10,13 @@ export default function Question({ currentQuestion, handleAnswer }: QuestionProp
 
   const { question, answers } = currentQuestion;
   return (
-    <div className={css.question}>
+    <div className='question'>
       <h2>{question}</h2>
-      <div className={css.answersFlex}>
+      <div className='answersFlex'>
         {answers.map(answer =>
           <button 
             key={answer.text} 
             onClick={() => handleAnswer(answer.isCorrect)}
-            className={css.answerBtn}
           >{answer.text}</button>
         )}
       </div>
