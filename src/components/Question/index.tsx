@@ -1,4 +1,4 @@
-import { Question as QuestionType } from "../../types";
+import { QuestionType } from "../../types";
 import './index.scss';
 
 interface QuestionProps {
@@ -7,7 +7,6 @@ interface QuestionProps {
 }
 
 export default function Question({ currentQuestion, handleAnswer }: QuestionProps) {
-
   const { question, answers } = currentQuestion;
   return (
     <div className='question'>

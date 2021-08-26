@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Loader from '../Loader';
 import getQuestions from '../../utils/api';
-import { Category, Difficulty, Question } from '../../types';
+import { Category, Difficulty, QuestionType } from '../../types';
 import './index.scss';
 import Footer from '../Footer';
 
@@ -13,7 +13,7 @@ function ErrorComponent() {
   );
 }
 
-export default function StartPage({ startGame }: { startGame: (questions: Question[]) => void }) {
+export default function StartPage({ startGame }: { startGame: (questions: QuestionType[]) => void }) {
   const [difficulty, setDifficulty] = useState<Difficulty>('easy');
   const [category, setCategory] = useState<Category>('15');
   const [start, setStart] = useState(false);

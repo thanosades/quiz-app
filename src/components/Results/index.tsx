@@ -10,7 +10,7 @@ export default function Results({ score, resetGame }: ResultsProps) {
     <div className='results'>
       <h1>Results</h1>
       <p>Your final score is {score}/10</p>
-      <button onClick={() => resetGame()}>start over</button>
+      <button onClick={resetGame}>start over</button>
     </div>
   );
 }

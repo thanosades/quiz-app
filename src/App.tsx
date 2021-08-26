@@ -2,7 +2,7 @@ import { useState } from 'react';
 import StartPage from './components/StartPage';
 import Question from './components/Question';
 import Results from './components/Results';
-import { Question as QuestionType } from './types';
+import { QuestionType } from './types';
 import './App.scss';
 
 function App() {
