@@ -1,5 +1,5 @@
 # Open Trivia DB Quiz Application
 
-A simple quiz game that uses the Open Trivia API found at https://opentdb.com/.
+A quiz game built with React and TypeScript, that uses the [open trivia API](https://opentdb.com/).
 
-This app was created with create-react-app and TypeScript.
+Click [here](Live at https://condescending-colden-58e3e9.netlify.app/) to play.
