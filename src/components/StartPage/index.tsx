@@ -1,17 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Loader from '../Loader';
+import Footer from '../Footer';
+import ErrorComponent from '../ErrorComponent';
 import getQuestions from '../../utils/api';
 import { Category, Difficulty, QuestionType } from '../../types';
 import './index.scss';
-import Footer from '../Footer';
-
-function ErrorComponent() {
-  return (
-    <div>
-      <p>An error has occured. Please try again later.</p>
-    </div>
-  );
-}
 
 export default function StartPage({ startGame }: { startGame: (questions: QuestionType[]) => void }) {
   const [difficulty, setDifficulty] = useState<Difficulty>('easy');
