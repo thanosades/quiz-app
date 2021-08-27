@@ -1,8 +1,10 @@
-$text-color: #efeff1;
+$bright-color: #efefef;
+$dark-color: #2d2d2d;
+$button-bg-color: #47cf73;
 
 body {
   background-color: #393939;
-  color: $text-color;
+  color: $bright-color;
 }
 
 .App {
@@ -13,8 +15,8 @@ body {
 }
 
 button {
-  background-color: #a970ff;
-  color: $text-color;
+  background-color: $button-bg-color;
+  color: $dark-color;
   padding: 20px;
   width: 250px;
   height: auto;
@@ -22,8 +24,10 @@ button {
   border: 0;
   border-radius: 4px;
   font-size: 24px;
+  transition: 0.2s;
 }
 
 button:hover {
-  background-color: #772ce8;
+  background-color: #248c46;
+  color: $bright-color;
 }
