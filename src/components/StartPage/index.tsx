@@ -38,7 +38,6 @@ export default function StartPage({ startGame }: { startGame: (questions: Questi
     }
   }, [start, category, difficulty, startGame]);
 
-
   return (
     <>
       {loader && <div className='loaderContainer'><Loader /></div>}

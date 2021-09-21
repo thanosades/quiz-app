@@ -20,7 +20,7 @@ function App() {
     setIndex(0);
   };
 
-  const handleAnswer = (isCorrect: boolean) => {
+  const handleScoreState = (isCorrect: boolean) => {
     if (isCorrect) {
       setScore(oldScore => oldScore + 1);
     }
@@ -35,7 +35,7 @@ function App() {
         questions.length === 0
           ? <StartPage startGame={startGame} />
           : index < 10
-            ? <Question currentQuestion={currentQuestion} handleAnswer={handleAnswer} />
+            ? <Question currentQuestion={currentQuestion} handleScoreState={handleScoreState} />
             : <Results score={score} resetGame={resetGame} />
       }
     </div>
