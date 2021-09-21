@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import StartPage from './components/StartPage';
-import Question from './components/Question';
-import Results from './components/Results';
-import { QuestionType } from './types';
-import './App.scss';
+import StartPage from 'components/StartPage';
+import Question from 'components/Question';
+import Results from 'components/Results';
+import { QuestionType } from 'types';
+import 'App.scss';
 
 function App() {
   const [questions, setQuestions] = useState<QuestionType[]>([]);

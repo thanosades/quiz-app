@@ -1,4 +1,4 @@
-import { Category, Difficulty, QuestionType, Answer } from "../types";
+import { Category, Difficulty, QuestionType, Answer } from "types";
 
 interface FetchedQuestion {
   category: string;
@@ -42,6 +42,3 @@ function processResults(results: FetchedQuestion[]): QuestionType[] {
     answers: shuffle(questionFormatter([current.correct_answer, ...current.incorrect_answers]))
   }));  
 }
-
-
-

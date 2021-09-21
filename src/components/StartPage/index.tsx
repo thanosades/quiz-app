@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Loader from '../Loader';
-import Footer from '../Footer';
-import ErrorComponent from '../ErrorComponent';
-import getQuestions from '../../utils/api';
-import { Category, Difficulty, QuestionType } from '../../types';
-import './index.scss';
+import Loader from 'components/Loader';
+import Footer from 'components/Footer';
+import ErrorComponent from 'components/ErrorComponent';
+import getQuestions from 'utils/api';
+import { Category, Difficulty, QuestionType } from 'types';
+import 'components/StartPage/index.scss';
 
 export default function StartPage({ startGame }: { startGame: (questions: QuestionType[]) => void }) {
   const [difficulty, setDifficulty] = useState<Difficulty>('easy');

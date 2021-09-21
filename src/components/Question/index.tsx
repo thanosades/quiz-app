@@ -1,5 +1,5 @@
-import { QuestionType } from "../../types";
-import './index.scss';
+import { QuestionType } from "types";
+import 'components/Question/index.scss';
 
 interface QuestionProps {
   currentQuestion: QuestionType;
