@@ -1,11 +1,11 @@
 $bright-color: #efefef;
 $dark-color: #2d2d2d;
 $button-bg-color: #393939;
-$bg-color: #46965f;
+$bg-color: #f8f5f0;
 
 body {
   background-color: $bg-color;
-  color: $bright-color;
+  color: $dark-color;
 }
 
 .App {
@@ -21,16 +21,15 @@ button {
   padding: 20px;
   width: 250px;
   height: auto;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   border: 0;
   border-radius: 4px;
   font-size: 24px;
   transition: 0.2s;
-  opacity: 0.8;
   box-shadow: 3px 3px $dark-color;
 }
 
 button:hover {
-  opacity: 1;
-  color: $bright-color;
+  background-color: $bright-color;
+  color: $button-bg-color;
 }
