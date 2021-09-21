@@ -44,7 +44,7 @@ export default function StartPage({ startGame }: { startGame: (questions: Questi
       {loader && <div className='loaderContainer'><Loader /></div>}
       {!loader && (
         <div>
-          <h1>Open Trivia Quiz!</h1>
+          <h1>Ten Questions</h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="difficulty">Select difficulty</label>
             <select id='difficulty' value={difficulty} onChange={handleDifficultyChange}>
