@@ -1,4 +1,4 @@
-import './index.scss';
+import 'components/Loader/index.scss';
 
 export default function Spinner() {
   return (

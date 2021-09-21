@@ -1,4 +1,4 @@
-import './index.scss';
+import 'components/Results/index.scss';
 
 interface ResultsProps {
   score: number;
