@@ -1,9 +1,10 @@
 $bright-color: #efefef;
 $dark-color: #2d2d2d;
-$button-bg-color: #47cf73;
+$button-bg-color: #393939;
+$bg-color: #46965f;
 
 body {
-  background-color: #393939;
+  background-color: $bg-color;
   color: $bright-color;
 }
 
@@ -16,7 +17,7 @@ body {
 
 button {
   background-color: $button-bg-color;
-  color: $dark-color;
+  color: $bright-color;
   padding: 20px;
   width: 250px;
   height: auto;
@@ -25,9 +26,11 @@ button {
   border-radius: 4px;
   font-size: 24px;
   transition: 0.2s;
+  opacity: 0.8;
+  box-shadow: 3px 3px $dark-color;
 }
 
 button:hover {
-  background-color: #248c46;
+  opacity: 1;
   color: $bright-color;
 }
