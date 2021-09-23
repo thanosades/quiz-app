@@ -30,9 +30,13 @@ export default function Question({ currentQuestion, handleScoreState }: Question
           <button
             key={answer.text}
             onClick={() => handleUserChoice(answer)}
+            disabled={Boolean(chosenAnswer)}
             style={
               answer.text === chosenAnswer
-                ? { backgroundColor: answer.isCorrect ? 'green' : 'red' }
+                ? { 
+                  backgroundColor: answer.isCorrect ? 'green' : 'red'
+                }
+                
                 : {}
             }
           >{answer.text}</button>
