@@ -11,7 +11,7 @@ export default function Question({ currentQuestion, handleScoreState }: Question
   const { question, answers } = currentQuestion;
   const [chosenAnswer, setChosenAnswer] = useState('');
 
-  const handleUserChoice = (answer: QuestionType['answers'][0]) => {
+  const handleUserChoice = (answer: typeof answers[number]) => {
     setChosenAnswer(answer.text);
     setTimeout(() => {
       handleScoreState(answer.isCorrect);
@@ -33,10 +33,7 @@ export default function Question({ currentQuestion, handleScoreState }: Question
             disabled={Boolean(chosenAnswer)}
             style={
               answer.text === chosenAnswer
-                ? { 
-                  backgroundColor: answer.isCorrect ? 'green' : 'red'
-                }
-                
+                ? { backgroundColor: answer.isCorrect ? 'green' : 'red' }
                 : {}
             }
           >{answer.text}</button>
