@@ -32,7 +32,7 @@ export default function StartPage({ startGame }: { startGame: (questions: Questi
       getQuestions(category, difficulty)
         .then(data => {
           setLoader(false);
-          startGame(data)
+          startGame(data);
         })
         .catch(err => setError(true))
     }
