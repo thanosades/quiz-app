@@ -60,7 +60,7 @@ export default function StartPage({ startGame }: { startGame: (questions: Questi
               <option value='9'>General Knowledge</option>
             </select>
 
-            <button>Start</button>
+            <button className="btn-hover">Start</button>
           </form>
           {error && <ErrorComponent />}
           <Footer />

@@ -29,6 +29,7 @@ export default function Question({ currentQuestion, handleScoreState }: Question
         {answers.map(answer =>
           <button
             key={answer.text}
+            className={Boolean(chosenAnswer) ? '' : 'btn-hover'}
             onClick={() => handleUserChoice(answer)}
             disabled={Boolean(chosenAnswer)}
             style={
