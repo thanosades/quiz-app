@@ -29,7 +29,7 @@ button {
   box-shadow: 3px 3px $dark-color;
 }
 
-button:hover {
-  background-color: $bright-color;
-  color: $button-bg-color;
+.btn-hover:hover {
+  background-color: #efefef;
+  color: #393939;
 }
