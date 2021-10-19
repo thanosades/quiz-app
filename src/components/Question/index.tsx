@@ -3,11 +3,12 @@ import 'components/Question/index.scss';
 import { useEffect, useState } from "react";
 
 interface QuestionProps {
+  number: number;
   currentQuestion: QuestionType;
   handleScoreState: (isCorrect: boolean) => void;
 }
 
-export default function Question({ currentQuestion, handleScoreState }: QuestionProps) {
+export default function Question({ number, currentQuestion, handleScoreState }: QuestionProps) {
   const { question, answers } = currentQuestion;
   const [chosenAnswer, setChosenAnswer] = useState('');
 
@@ -24,7 +25,7 @@ export default function Question({ currentQuestion, handleScoreState }: Question
 
   return (
     <div className='question'>
-      <h2>{question}</h2>
+      <h2>{number}. {question}</h2>
       <div className='answersFlex'>
         {answers.map(answer =>
           <button
