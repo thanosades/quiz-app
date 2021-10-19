@@ -35,7 +35,11 @@ function App() {
         questions.length === 0
           ? <StartPage startGame={startGame} />
           : index < 10
-            ? <Question currentQuestion={currentQuestion} handleScoreState={handleScoreState} />
+            ? <Question 
+                currentQuestion={currentQuestion} 
+                handleScoreState={handleScoreState}
+                number={index + 1} 
+              />
             : <Results score={score} resetGame={resetGame} />
       }
     </div>
