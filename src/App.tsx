@@ -1,31 +1,66 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
 import StartPage from 'components/StartPage';
 import Question from 'components/Question';
 import Results from 'components/Results';
 import { QuestionType } from 'types';
 import 'App.scss';
 
+
+interface QuizState {
+  questions: QuestionType[];
+  score: number;
+  index: number;
+}
+
+type ActionType = 
+  | { type: 'quiz/start'; payload: QuestionType[] }
+  | { type: 'quiz/reset' }
+  | { type: 'quiz/answer'; payload: boolean }
+
+const initialState = {
+  questions: [],
+  score: 0,
+  index: 0
+}
+
+function reducer(state: QuizState, action: ActionType) {
+  switch(action.type) {
+    case 'quiz/start':
+      return {
+        ...state,
+        questions: action.payload
+      };
+    case 'quiz/reset':
+      return initialState;
+    case 'quiz/answer':
+      const currentState = { ...state };
+      if (action.payload) {
+        currentState.score += 1;
+      }
+      currentState.index += 1;
+      return currentState;
+    default:
+      throw new Error();
+  }
+}
+
 function App() {
-  const [questions, setQuestions] = useState<QuestionType[]>([]);
-  const [score, setScore] = useState(0);
-  const [index, setIndex] = useState(0);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const startGame = (questionsArr: QuestionType[]) => {
-    setQuestions(questionsArr);
+    dispatch({ type: 'quiz/start', payload: questionsArr });
   }
 
   const resetGame = () => {
-    setQuestions([]);
-    setScore(0);
-    setIndex(0);
+    dispatch({ type: 'quiz/reset' });
   };
 
   const handleScoreState = (isCorrect: boolean) => {
-    if (isCorrect) {
-      setScore(oldScore => oldScore + 1);
-    }
-    setIndex(previous => previous + 1);
+    dispatch({ type: 'quiz/answer', payload: isCorrect });
   };
+
+
+  const { questions, score, index } = state;
 
   const currentQuestion: QuestionType = questions[index];
 
