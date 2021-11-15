@@ -6,7 +6,11 @@ import getQuestions from 'utils/api';
 import { Category, Difficulty, QuestionType } from 'types';
 import 'components/StartPage/index.scss';
 
-export default function StartPage({ startGame }: { startGame: (questions: QuestionType[]) => void }) {
+export default function StartPage({
+  startGame,
+}: {
+  startGame: (questions: QuestionType[]) => void;
+}): JSX.Element {
   const [difficulty, setDifficulty] = useState<Difficulty>('easy');
   const [category, setCategory] = useState<Category>('15');
   const [start, setStart] = useState(false);
@@ -30,34 +34,38 @@ export default function StartPage({ startGame }: { startGame: (questions: Questi
   useEffect(() => {
     if (start) {
       getQuestions(category, difficulty)
-        .then(data => {
+        .then((data) => {
           setLoader(false);
           startGame(data);
         })
-        .catch(err => setError(true))
+        .catch((err) => setError(true));
     }
   }, [start, category, difficulty, startGame]);
 
   return (
     <>
-      {loader && <div className='loaderContainer'><Loader /></div>}
+      {loader && (
+        <div className="loaderContainer">
+          <Loader />
+        </div>
+      )}
       {!loader && (
         <div>
           <h1>Ten Questions</h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="difficulty">Select difficulty</label>
-            <select id='difficulty' value={difficulty} onChange={handleDifficultyChange}>
-              <option value='easy'>Easy</option>
-              <option value='medium'>Medium</option>
-              <option value='hard'>Hard</option>
+            <select id="difficulty" value={difficulty} onChange={handleDifficultyChange}>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
             </select>
 
-            <label htmlFor='category'>Select category:</label>
-            <select id='category' value={category} onChange={handleCategoryChange}>
-              <option value='15'>Video Games</option>
-              <option value='14'>Entertainment: Television</option>
-              <option value='31'>Anime & Manga</option>
-              <option value='9'>General Knowledge</option>
+            <label htmlFor="category">Select category:</label>
+            <select id="category" value={category} onChange={handleCategoryChange}>
+              <option value="15">Video Games</option>
+              <option value="14">Entertainment: Television</option>
+              <option value="31">Anime & Manga</option>
+              <option value="9">General Knowledge</option>
             </select>
 
             <button className="btn-hover">Start</button>
@@ -67,5 +75,5 @@ export default function StartPage({ startGame }: { startGame: (questions: Questi
         </div>
       )}
     </>
-  )
+  );
 }

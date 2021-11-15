@@ -5,30 +5,29 @@ import Results from 'components/Results';
 import { QuestionType } from 'types';
 import 'App.scss';
 
-
 interface QuizState {
   questions: QuestionType[];
   score: number;
   index: number;
 }
 
-type ActionType = 
+type ActionType =
   | { type: 'quiz/start'; payload: QuestionType[] }
   | { type: 'quiz/reset' }
-  | { type: 'quiz/answer'; payload: boolean }
+  | { type: 'quiz/answer'; payload: boolean };
 
 const initialState = {
   questions: [],
   score: 0,
-  index: 0
-}
+  index: 0,
+};
 
 function reducer(state: QuizState, action: ActionType) {
-  switch(action.type) {
+  switch (action.type) {
     case 'quiz/start':
       return {
         ...state,
-        questions: action.payload
+        questions: action.payload,
       };
     case 'quiz/reset':
       return initialState;
@@ -44,12 +43,12 @@ function reducer(state: QuizState, action: ActionType) {
   }
 }
 
-function App() {
+function App(): JSX.Element {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const startGame = (questionsArr: QuestionType[]) => {
     dispatch({ type: 'quiz/start', payload: questionsArr });
-  }
+  };
 
   const resetGame = () => {
     dispatch({ type: 'quiz/reset' });
@@ -59,24 +58,23 @@ function App() {
     dispatch({ type: 'quiz/answer', payload: isCorrect });
   };
 
-
   const { questions, score, index } = state;
 
   const currentQuestion: QuestionType = questions[index];
 
   return (
     <div className="App">
-      {
-        questions.length === 0
-          ? <StartPage startGame={startGame} />
-          : index < 10
-            ? <Question 
-                currentQuestion={currentQuestion} 
-                handleScoreState={handleScoreState}
-                number={index + 1} 
-              />
-            : <Results score={score} resetGame={resetGame} />
-      }
+      {questions.length === 0 ? (
+        <StartPage startGame={startGame} />
+      ) : index < 10 ? (
+        <Question
+          currentQuestion={currentQuestion}
+          handleScoreState={handleScoreState}
+          number={index + 1}
+        />
+      ) : (
+        <Results score={score} resetGame={resetGame} />
+      )}
     </div>
   );
 }

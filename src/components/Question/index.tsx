@@ -1,6 +1,6 @@
-import { QuestionType } from "types";
+import { QuestionType } from 'types';
 import 'components/Question/index.scss';
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 interface QuestionProps {
   number: number;
@@ -8,7 +8,11 @@ interface QuestionProps {
   handleScoreState: (isCorrect: boolean) => void;
 }
 
-export default function Question({ number, currentQuestion, handleScoreState }: QuestionProps) {
+export default function Question({
+  number,
+  currentQuestion,
+  handleScoreState,
+}: QuestionProps): JSX.Element {
   const { question, answers } = currentQuestion;
   const [chosenAnswer, setChosenAnswer] = useState('');
 
@@ -17,18 +21,18 @@ export default function Question({ number, currentQuestion, handleScoreState }: 
     setTimeout(() => {
       handleScoreState(answer.isCorrect);
     }, 1500);
-  }
+  };
 
   useEffect(() => {
     setChosenAnswer('');
   }, [question]);
 
   return (
-    <div className='question'>
+    <div className="question">
       <h3>Question {number}:</h3>
       <h3> {question}</h3>
-      <div className='answersFlex'>
-        {answers.map(answer =>
+      <div className="answersFlex">
+        {answers.map((answer) => (
           <button
             key={answer.text}
             className={Boolean(chosenAnswer) ? '' : 'btn-hover'}
@@ -39,8 +43,10 @@ export default function Question({ number, currentQuestion, handleScoreState }: 
                 ? { backgroundColor: answer.isCorrect ? 'green' : 'red' }
                 : {}
             }
-          >{answer.text}</button>
-        )}
+          >
+            {answer.text}
+          </button>
+        ))}
       </div>
     </div>
   );

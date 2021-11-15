@@ -5,12 +5,14 @@ interface ResultsProps {
   resetGame: () => void;
 }
 
-export default function Results({ score, resetGame }: ResultsProps) {
+export default function Results({ score, resetGame }: ResultsProps): JSX.Element {
   return (
-    <div className='results'>
+    <div className="results">
       <h1>Quiz Over</h1>
       <p>Your final score is {score}/10</p>
-      <button className="btn-hover" onClick={resetGame}>start over</button>
+      <button className="btn-hover" onClick={resetGame}>
+        start over
+      </button>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { Category, Difficulty, QuestionType, Answer } from "types";
+import { Category, Difficulty, QuestionType, Answer } from 'types';
 
 interface FetchedQuestion {
   category: string;
@@ -14,7 +14,10 @@ interface OpenTriviaDB {
   results: FetchedQuestion[];
 }
 
-export default async function getQuestions(category: Category, difficulty: Difficulty): Promise<QuestionType[]> {
+export default async function getQuestions(
+  category: Category,
+  difficulty: Difficulty,
+): Promise<QuestionType[]> {
   const url = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple&encode=url3986`;
   const res: OpenTriviaDB = await (await fetch(url)).json();
   const processedQuestions = processResults(res.results);
@@ -28,17 +31,17 @@ function questionFormatter(answersArr: string[]): Answer[] {
   });
 }
 
-  function shuffle(array: Answer[]): Answer[] {
-    for (let i = 0; i < array.length; i++) {
-      let j = Math.floor(Math.random() * array.length);
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
+function shuffle(array: Answer[]): Answer[] {
+  for (let i = 0; i < array.length; i++) {
+    const j = Math.floor(Math.random() * array.length);
+    [array[i], array[j]] = [array[j], array[i]];
   }
+  return array;
+}
 
 function processResults(results: FetchedQuestion[]): QuestionType[] {
-  return results.map(current => ({
+  return results.map((current) => ({
     question: decodeURIComponent(current.question),
-    answers: shuffle(questionFormatter([current.correct_answer, ...current.incorrect_answers]))
-  }));  
+    answers: shuffle(questionFormatter([current.correct_answer, ...current.incorrect_answers])),
+  }));
 }
