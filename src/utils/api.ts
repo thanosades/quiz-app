@@ -1,4 +1,4 @@
-import { Category, Difficulty, QuestionType, Answer } from 'types';
+import { Category, Difficulty, QuestionType, Answer } from 'globalTypes';
 
 interface FetchedQuestion {
   category: string;

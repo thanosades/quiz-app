@@ -3,7 +3,7 @@ import Loader from 'components/Loader';
 import Footer from 'components/Footer';
 import ErrorComponent from 'components/ErrorComponent';
 import getQuestions from 'utils/api';
-import { Category, Difficulty, QuestionType } from 'types';
+import { Category, Difficulty, QuestionType } from 'globalTypes';
 import 'components/StartPage/index.scss';
 
 export default function StartPage({

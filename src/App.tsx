@@ -2,7 +2,7 @@ import { useReducer } from 'react';
 import StartPage from 'components/StartPage';
 import Question from 'components/Question';
 import Results from 'components/Results';
-import { QuestionType } from 'types';
+import { QuestionType } from 'globalTypes';
 import 'App.scss';
 
 interface QuizState {

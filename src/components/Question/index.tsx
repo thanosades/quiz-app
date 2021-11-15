@@ -1,4 +1,4 @@
-import { QuestionType } from 'types';
+import { QuestionType } from 'globalTypes';
 import 'components/Question/index.scss';
 import { useEffect, useState } from 'react';
 
