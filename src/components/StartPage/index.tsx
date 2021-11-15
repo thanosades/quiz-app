@@ -12,7 +12,7 @@ export default function StartPage({
   startGame: (questions: QuestionType[]) => void;
 }): JSX.Element {
   const [difficulty, setDifficulty] = useState<Difficulty>('easy');
-  const [category, setCategory] = useState<Category>('15');
+  const [category, setCategory] = useState<Category>(Category.GeneralKnowledge);
   const [start, setStart] = useState(false);
   const [error, setError] = useState(false);
   const [loader, setLoader] = useState(false);
@@ -38,7 +38,7 @@ export default function StartPage({
           setLoader(false);
           startGame(data);
         })
-        .catch((err) => setError(true));
+        .catch(() => setError(true));
     }
   }, [start, category, difficulty, startGame]);
 
@@ -62,10 +62,12 @@ export default function StartPage({
 
             <label htmlFor="category">Select category:</label>
             <select id="category" value={category} onChange={handleCategoryChange}>
-              <option value="15">Video Games</option>
-              <option value="14">Entertainment: Television</option>
-              <option value="31">Anime & Manga</option>
-              <option value="9">General Knowledge</option>
+              <option value={Category.GeneralKnowledge}>General Knowledge</option>
+              <option value={Category.Computers}>Computers</option>
+              <option value={Category.Film}>Entertainment: Film</option>
+              <option value={Category.Television}>Entertainment: Television</option>
+              <option value={Category.VideoGames}>Video Games</option>
+              <option value={Category.AnimeManga}>Anime &amp; Manga</option>
             </select>
 
             <button className="btn-hover">Start</button>
