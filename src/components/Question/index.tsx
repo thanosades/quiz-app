@@ -25,7 +25,8 @@ export default function Question({ number, currentQuestion, handleScoreState }: 
 
   return (
     <div className='question'>
-      <h2>{number}. {question}</h2>
+      <h3>Question {number}:</h3>
+      <h3> {question}</h3>
       <div className='answersFlex'>
         {answers.map(answer =>
           <button
