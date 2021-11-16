@@ -53,14 +53,14 @@ export default function StartPage({
         <div>
           <h1>Ten Questions</h1>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="difficulty">Select difficulty</label>
+            <label htmlFor="difficulty">Choose Difficulty</label>
             <select id="difficulty" value={difficulty} onChange={handleDifficultyChange}>
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
               <option value="hard">Hard</option>
             </select>
 
-            <label htmlFor="category">Select category:</label>
+            <label htmlFor="category">Choose Category</label>
             <select id="category" value={category} onChange={handleCategoryChange}>
               <option value={Category.GeneralKnowledge}>General Knowledge</option>
               <option value={Category.Computers}>Computers</option>
