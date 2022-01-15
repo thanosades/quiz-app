@@ -1,4 +1,4 @@
-export default function ErrorComponent(): JSX.Element {
+export default function ErrorComponent() {
   return (
     <div>
       <p>

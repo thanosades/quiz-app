@@ -43,7 +43,7 @@ function reducer(state: QuizState, action: ActionType) {
   }
 }
 
-function App(): JSX.Element {
+function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const startGame = (questionsArr: QuestionType[]) => {

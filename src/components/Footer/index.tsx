@@ -1,10 +1,10 @@
 import 'components/Footer/index.scss';
 
-export default function Footer(): JSX.Element {
+export default function Footer() {
   return (
     <footer className="footer">
       <p>
-        Powered by <a href="http://opentdb.com/">Open Trivia database</a>
+        Powered by the <a href="http://opentdb.com/">Open Trivia API</a>
       </p>
       <p>
         Made by <a href="http://thanosades.vercel.app/">Thanos Dimitriades</a>, 2021

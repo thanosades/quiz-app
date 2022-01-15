@@ -1,6 +1,6 @@
 import 'components/Loader/index.scss';
 
-export default function Spinner(): JSX.Element {
+export default function Spinner() {
   return (
     <div className="loader">
       <div></div>

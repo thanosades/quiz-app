@@ -10,7 +10,7 @@ export default function StartPage({
   startGame,
 }: {
   startGame: (questions: QuestionType[]) => void;
-}): JSX.Element {
+}) {
   const [difficulty, setDifficulty] = useState<Difficulty>('easy');
   const [category, setCategory] = useState<Category>(Category.GeneralKnowledge);
   const [start, setStart] = useState(false);
@@ -18,6 +18,7 @@ export default function StartPage({
   const [loader, setLoader] = useState(false);
 
   const handleDifficultyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    console.log('rendering');
     setDifficulty(e.currentTarget.value as Difficulty);
   };
 
@@ -35,6 +36,7 @@ export default function StartPage({
     if (start) {
       getQuestions(category, difficulty)
         .then((data) => {
+          console.log('I am right inside the useEffect');
           setLoader(false);
           startGame(data);
         })

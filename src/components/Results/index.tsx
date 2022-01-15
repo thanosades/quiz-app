@@ -5,7 +5,7 @@ interface ResultsProps {
   resetGame: () => void;
 }
 
-export default function Results({ score, resetGame }: ResultsProps): JSX.Element {
+export default function Results({ score, resetGame }: ResultsProps) {
   return (
     <div className="results">
       <h1>Quiz Over</h1>

@@ -8,11 +8,7 @@ interface QuestionProps {
   handleScoreState: (isCorrect: boolean) => void;
 }
 
-export default function Question({
-  number,
-  currentQuestion,
-  handleScoreState,
-}: QuestionProps): JSX.Element {
+export default function Question({ number, currentQuestion, handleScoreState }: QuestionProps) {
   const { question, answers } = currentQuestion;
   const [chosenAnswer, setChosenAnswer] = useState('');
   const [seconds, setSeconds] = useState(0);
