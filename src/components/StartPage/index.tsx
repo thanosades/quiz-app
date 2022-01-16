@@ -18,7 +18,6 @@ export default function StartPage({
   const [loader, setLoader] = useState(false);
 
   const handleDifficultyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log('rendering');
     setDifficulty(e.currentTarget.value as Difficulty);
   };
 
@@ -36,7 +35,6 @@ export default function StartPage({
     if (start) {
       getQuestions(category, difficulty)
         .then((data) => {
-          console.log('I am right inside the useEffect');
           setLoader(false);
           startGame(data);
         })

@@ -8,8 +8,8 @@ interface ResultsProps {
 export default function Results({ score, resetGame }: ResultsProps) {
   return (
     <div className="results">
-      <h1>Quiz Over</h1>
-      <p>Your final score is {score}/10</p>
+      <h1>Game Over</h1>
+      <p>Your score was {score}/10</p>
       <button className="btn-hover" onClick={resetGame}>
         start over
       </button>

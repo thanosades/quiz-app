@@ -7,7 +7,7 @@ export default function Footer() {
         Powered by the <a href="http://opentdb.com/">Open Trivia API</a>
       </p>
       <p>
-        Made by <a href="http://thanosades.vercel.app/">Thanos Dimitriades</a>, 2021
+        Made by <a href="http://thanosades.vercel.app/">Thanos Dimitriades</a>
       </p>
     </footer>
   );
